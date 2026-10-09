@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Pixel Booth</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+</head>
+
+
+<body>
+
+
+    <main class="booth">
+
+
+        <!-- HEADER -->
+
+        <header class="header">
+
+            <div>
+
+                <p class="eyebrow">
+                    DIGITAL PHOTOBOOTH
+                </p>
+
+                <h1>
+                    Pixel Booth
+                </h1>
+
+            </div>
+
+
+            <div class="status">
+
+                <span class="status-dot"></span>
+
+                CAMERA READY
+
+            </div>
+
+        </header>
+
+
+
+        <!-- MAIN CONTENT -->
+
+        <section class="workspace">
+
+
+            <!-- CAMERA -->
+
+            <div class="camera-section">
+
+
+                <div class="camera-frame">
+
+
+                    <video
+                        id="camera"
+                        autoplay
+                        playsinline
+                        muted
+                    ></video>
+
+
+                    <!-- FILTER PREVIEW -->
+
+                    <div
+                        id="filterOverlay"
+                        class="filter-overlay"
+                    ></div>
+
+
+                    <!-- COUNTDOWN -->
+
+                    <div
+                        id="countdown"
+                        class="countdown hidden"
+                    >
+                        3
+                    </div>
+
+
+                    <!-- FLASH -->
+
+                    <div
+                        id="flash"
+                        class="flash"
+                    ></div>
+
+
+                    <div class="camera-label">
+
+                        <span>
+                            ● LIVE
+                        </span>
+
+                    </div>
+
+
+                </div>
+
+
+                <!-- CONTROLS -->
+
+                <div class="camera-controls">
+
+
+                    <button
+                        id="flipCamera"
+                        class="icon-button"
+                        title="Flip camera"
+                    >
+                        ↻
+                    </button>
+
+
+                    <button
+                        id="captureButton"
+                        class="capture-button"
+                    >
+
+                        <span></span>
+
+                    </button>
+
+
+                    <button
+                        id="mirrorToggle"
+                        class="icon-button"
+                        title="Mirror preview"
+                    >
+                        ⇋
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+
+
+            <!-- SIDEBAR -->
+
+            <aside class="sidebar">
+
+
+                <!-- FILTERS -->
+
+                <section class="control-section">
+
+                    <div class="section-heading">
+
+                        <span>
+                            FILTER
+                        </span>
+
+                        <small>
+                            LIVE
+                        </small>
+
+                    </div>
+
+
+                    <div
+                        id="filters"
+                        class="filter-grid"
+                    >
+
+                        <button
+                            class="filter-option active"
+                            data-filter="none"
+                        >
+                            <span class="filter-preview normal"></span>
+                            Original
+                        </button>
+
+
+                        <button
+                            class="filter-option"
+                            data-filter="grayscale"
+                        >
+                            <span class="filter-preview bw"></span>
+                            B&W
+                        </button>
+
+
+                        <button
+                            class="filter-option"
+                            data-filter="vintage"
+                        >
+                            <span class="filter-preview vintage"></span>
+                            Vintage
+                        </button>
+
+
+                        <button
+                            class="filter-option"
+                            data-filter="warm"
+                        >
+                            <span class="filter-preview warm"></span>
+                            Warm
+                        </button>
+
+
+                        <button
+                            class="filter-option"
+                            data-filter="cool"
+                        >
+                            <span class="filter-preview cool"></span>
+                            Cool
+                        </button>
+
+
+                        <button
+                            class="filter-option"
+                            data-filter="y2k"
+                        >
+                            <span class="filter-preview y2k"></span>
+                            Y2K
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- LAYOUT -->
+
+                <section class="control-section">
+
+                    <div class="section-heading">
+
+                        <span>
+                            LAYOUT
+                        </span>
+
+                    </div>
+
+
+                    <div class="layout-options">
+
+
+                        <button
+                            class="layout-option active"
+                            data-layout="strip"
+                        >
+                            <span class="layout-icon strip-icon"></span>
+                            Photo Strip
+                        </button>
+
+
+                        <button
+                            class="layout-option"
+                            data-layout="grid"
+                        >
+                            <span class="layout-icon grid-icon"></span>
+                            2 × 2
+                        </button>
+
+
+                        <button
+                            class="layout-option"
+                            data-layout="polaroid"
+                        >
+                            <span class="layout-icon polaroid-icon"></span>
+                            Polaroid
+                        </button>
+
+
+                    </div>
+
+                </section>
+
+
+
+                <!-- CAPTURE COUNT -->
+
+                <section class="control-section">
+
+                    <div class="section-heading">
+
+                        <span>
+                            PHOTOS
+                        </span>
+
+                    </div>
+
+
+                    <div class="photo-count">
+
+                        <button
+                            class="count-option"
+                            data-count="1"
+                        >
+                            1
+                        </button>
+
+                        <button
+                            class="count-option"
+                            data-count="3"
+                        >
+                            3
+                        </button>
+
+                        <button
+                            class="count-option active"
+                            data-count="4"
+                        >
+                            4
+                        </button>
+
+                    </div>
+
+                </section>
+
+
+            </aside>
+
+        </section>
+
+
+
+        <!-- RESULT -->
+
+        <section
+            id="resultSection"
+            class="result-section hidden"
+        >
+
+            <div class="result-header">
+
+                <div>
+
+                    <p class="eyebrow">
+                        YOUR PHOTOS
+                    </p>
+
+                    <h2>
+                        Looking good ✦
+                    </h2>
+
+                </div>
+
+
+                <div class="result-actions">
+
+                    <button
+                        id="retakeButton"
+                        class="secondary-button"
+                    >
+                        Retake
+                    </button>
+
+
+                    <button
+                        id="downloadButton"
+                        class="primary-button"
+                    >
+                        Download
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="result-preview">
+
+                <canvas
+                    id="resultCanvas"
+                ></canvas>
+
+            </div>
+
+        </section>
+
+
+        <footer>
+
+            Built with camera + canvas
+
+        </footer>
+
+
+    </main>
+
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
